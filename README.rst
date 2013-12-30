@@ -18,7 +18,7 @@ A patent takes a raw XML string::
     >>> import patentparse.patent
     >>> patent = patent.patentparse.Patent(xml_contents)
 
-It has some attributes to get at commonly-used information:
+It has some attributes to get at commonly-used information::
 
     >>> patent.invention_title
     "Method and system for preventing copying of information from previews of webpages"
@@ -28,7 +28,7 @@ It has some attributes to get at commonly-used information:
     ['\n1. A method of providing a copy prevention feature...]
 
 It also gives access to the ElementTree itself, for any information not
-available by the Patent API.
+available by the Patent API.::
 
     >>> patent.tree.find('.//invention-title').text
     "Method and system for preventing copying of information from previews of webpages"

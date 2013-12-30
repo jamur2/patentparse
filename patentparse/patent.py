@@ -30,8 +30,13 @@ class Patent(object):
                 claim, method='text', encoding='utf-8')
 
     @property
+    def doc_number(self):
+        return self.tree.find('.//publication-reference//doc-number').text
+
+    @property
     def json(self):
         return json.dumps(dict(
+            doc_number=self.doc_number,
             invention_title=self.invention_title,
             claims=list(self.claims),
             ))

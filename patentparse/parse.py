@@ -28,4 +28,5 @@ if __name__ == '__main__':
         print patent.invention_title
         print '-' * len(unicode(patent.invention_title))
         pprint.pprint(list(patent.claims))
+        pprint.pprint(patent.json)
         print

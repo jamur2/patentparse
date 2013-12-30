@@ -1,3 +1,4 @@
+import json
 import patentparse
 import xml.etree.cElementTree
 
@@ -25,4 +26,12 @@ class Patent(object):
     def claims(self):
         claims = self.tree.findall('.//claim')
         for claim in claims:
-            yield claim.find('.//claim-text').text
+            yield xml.etree.cElementTree.tostring(
+                claim, method='text', encoding='utf-8')
+
+    @property
+    def json(self):
+        return json.dumps(dict(
+            invention_title=self.invention_title,
+            claims=list(self.claims),
+            ))
